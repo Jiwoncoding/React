@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Accommodate from './example3/Accommodate';
+import ConfirmBtn from './example4/ConfirmBtn';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
@@ -8,7 +9,7 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Accommodate />
+    <ConfirmBtn />
   </React.StrictMode>
 );
 
