@@ -1,11 +1,31 @@
 import React from 'react';
-import Commnet from './Comment';
+import Comment from './Comment';
+
+
+const comments = [
+  {
+    name: "서지원",
+    comment: "안녕!"
+  },
+  {
+    name: "서지원",
+    comment: "안녕!"
+  },
+  {
+    name: "서지원",
+    comment: "안녕!"
+  },
+];
 
 function CommentList(props){
   return(
-    <>
-      <Commnet name={"서지원"} comment={"안녕하세요."} />
-    </>
+    <div>
+      {comments.map((comment)=>{
+        return(
+          <Comment name={comment.name} comment={comment.comment} />
+        );
+      })}
+    </div>
   );
 }
 
