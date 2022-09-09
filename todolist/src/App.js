@@ -4,16 +4,16 @@ export default class App extends Component {
 
   state = {
     todoData : [
-      {
-        id: "1",
-        title: "공부하기",
-        completed: true
-      },
-      {
-        id: "2",
-        title: "청소하기",
-        completed: false
-      },
+      // {
+      //   id: "1",
+      //   title: "공부하기",
+      //   completed: true
+      // },
+      // {
+      //   id: "2",
+      //   title: "청소하기",
+      //   completed: false
+      // },
     ],
     value: "",
   };
@@ -27,11 +27,11 @@ export default class App extends Component {
     float: "right"
   }
 
-  getStyle = () => {
+  getStyle = (completed) => {
     return {
       padding: "10px",
       borderBottom: " 1px #ccc dotted",
-      textDecoration: "none"
+      textDecoration: completed ? "line-through" : "none",
     }
   }
 
@@ -58,7 +58,17 @@ export default class App extends Component {
     };
 
     // 원래 있던 할 일에 새로운 할 일 추가
-    this.setState({todoData: [...this.state.todoData, newTodo]});
+    this.setState({todoData: [...this.state.todoData, newTodo], value: ""});
+  };
+
+  handleCompleChange = (id) => {
+    let newTodoData = this.state.todoData.map((data)=>{
+      if(data.id===id){
+        data.completed = !data.completed;
+      }
+      return data;
+    });
+    this.setState({todoData:newTodoData});
   };
 
 
@@ -72,9 +82,9 @@ export default class App extends Component {
 
 
           {this.state.todoData.map((data)=>(
-          <div style={this.getStyle()} key={data.id}>
+          <div style={this.getStyle(data.completed)} key={data.id}>
           <p>
-          <input type="checkbox" defaultChecked={false} />
+          <input type="checkbox" onChange={()=>this.handleCompleChange(data.id)} defaultChecked={false} />
           {" "}{data.title}
           <button style={this.btnStyle} onClick={()=>this.handleClick(data.id)}>x</button>
           </p>
