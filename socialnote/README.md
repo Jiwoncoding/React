@@ -1,5 +1,5 @@
 # Social Note App
-출처: 자바스크립트는 모든 곳에 존재한다. https://github.com/javascripteverywhere
+출처: 자바스크립트는 모든 곳에 존재한다.
 
 
 
